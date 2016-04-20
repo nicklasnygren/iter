@@ -1,13 +1,13 @@
 import test from 'tape';
-import { intRange } from '../src';
+import { isIterable, intRange } from '../src';
 
 test('intRange', t => {
 
   t.ok(intRange
     , `intRange should be defined`);
 
-  t.ok(typeof intRange(1, 5)[Symbol.iterator] === 'function'
-    , `intRange produces iterator`);
+  t.ok(isIterable(intRange(1, 5))
+    , `intRange returns iterable`);
 
   t.deepEqual(
     Array.from(intRange(1, 5)),
@@ -16,16 +16,16 @@ test('intRange', t => {
   );
 
   // Currying
-  const rangeFromTwo = intRange(2);
+  const _rangeFromTwo = intRange(2);
 
-  t.ok(!rangeFromTwo[Symbol.iterator]
+  t.ok(!_rangeFromTwo[Symbol.iterator]
     , `Partially applied intRange does not return iterable`);
   
-  t.ok(typeof rangeFromTwo(5)[Symbol.iterator] === 'function'
+  t.ok(typeof _rangeFromTwo(5)[Symbol.iterator] === 'function'
     , `Curried intRange produces iterable`);
 
   t.deepEqual(
-    Array.from(rangeFromTwo(4)),
+    Array.from(_rangeFromTwo(4)),
     [2, 3, 4],
     `Curried intRange iterable produces expected output`
   );

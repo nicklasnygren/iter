@@ -1,6 +1,6 @@
 import moment from 'moment';
 import test from 'tape';
-import { dateRange } from '../src';
+import { isIterable, dateRange } from '../src';
 
 test('dateRange', t => {
 
@@ -9,15 +9,24 @@ test('dateRange', t => {
   
   const _dateRange1 = dateRange(+moment(), +moment().add(3, 'days'));
 
-  t.ok(typeof _dateRange1[Symbol.iterator] === 'function'
-    , `dateRange produces iterable`);
+  t.ok(isIterable(_dateRange1)
+    , `dateRange returns iterable`);
 
   for (const date of _dateRange1) {
-    console.log(date);
     if (!(date instanceof Date)) {
       t.fail(`dateRange should output Date instances`);
     }
   }
 
+  const _rangeFromToday = dateRange(new Date());
+  t.ok(!isIterable(_rangeFromToday)
+    , `Partially applied dateRange does not return iterable`);
+
+  t.ok(typeof _rangeFromToday === 'function'
+    , `Partially applied dateRange returns function`);
+
+  t.ok(isIterable(_rangeFromToday(moment().add(10, 'days').format()))
+    , `Curried dateRange returns iterable`);
+  
   t.end();
 });
