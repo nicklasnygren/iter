@@ -13,6 +13,7 @@ export default cu(function * dateRange(start, end) {
 
   do {
     yield curDate;
+    curDate = new Date(curDate);
     curDate.setDate(curDate.getDate() + 1);
   } while (curDate <= endDate);
 });
