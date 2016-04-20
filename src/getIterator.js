@@ -1,8 +1,6 @@
-import isIterable from './isIterable';
+import assertIterable from './assertIterable';
 
 export default function getIterator(iterable) {
-  if (!isIterable(iterable)) {
-    throw new TypeError('Supplied object is not iterable');
-  }
+  assertIterable(iterable);
   return iterable[Symbol.iterator]();
 }
