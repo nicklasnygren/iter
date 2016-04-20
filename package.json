@@ -8,6 +8,10 @@
     "test": "npm run tap | faucet",
     "watch": "nodemon -q -w ./src -w ./test -e js -x npm run tap"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicklasnygren/iter.git"
+  },
   "keywords": [
     "util",
     "stdlib",
