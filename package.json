@@ -6,9 +6,10 @@
   "scripts": {
     "clean": "rm -rf ./dist; mkdir -p dist",
     "build": "npm run clean; browserify --node --no-bundle-external -s iter -t babelify src/index.js | uglifyjs > dist/index.js",
-    "tap": "babel-tape-runner test/*.js &2>/dev/null",
-    "test": "npm run tap | faucet",
-    "watch": "nodemon -q -w ./src -w ./test -e js -x npm run tap",
+    "tap": "babel-tape-runner test/*.js",
+    "tap-silent": "npm run tap &2>/dev/null",
+    "test": "npm run tap",
+    "watch": "nodemon -q -w ./src -w ./test -e js -x 'npm run tap-silent'",
     "prepublish": "npm run build"
   },
   "files": [
