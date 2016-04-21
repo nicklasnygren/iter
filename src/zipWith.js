@@ -1,7 +1,8 @@
+import cu from 'auto-curry';
 import getIterator from './getIterator';
 
-export default function * zipWith (zipper, ...iterables) {
-  const iterators = iterables.map(getIterator);
+export default cu(function * zipWith (zipFn, it0, it1, ...itN) {
+  const iterators = [it0, it1, ...itN].map(getIterator);
 
   while (true) {
     const pairs = iterators.map(i => i.next());
@@ -12,6 +13,6 @@ export default function * zipWith (zipper, ...iterables) {
       break;
     }
 
-    yield zipper(...values);
+    yield zipFn(...values);
   }
-};
+});
