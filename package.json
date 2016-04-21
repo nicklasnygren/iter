@@ -1,6 +1,6 @@
 {
   "name": "iter",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Lazily evaluated utility library",
   "main": "index.js",
   "scripts": {
