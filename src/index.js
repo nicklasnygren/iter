@@ -7,3 +7,4 @@ export { default as map } from './map';
 export { default as slice } from './slice';
 export { default as tail } from './tail';
 export { default as take } from './take';
+export { default as zipWith } from './zipWith';
