@@ -22,6 +22,7 @@ getArray(take(8, fibonacci()));
 
 ### Methods
  * `assertIterable(iterable)`
+ * `compose(...iterables)`
  * `filter(filterFn, iterable)`
  * `getArray(iterable)`
  * `getIterator(iterable)`
