@@ -29,6 +29,7 @@ getArray(take(8, fibonacci()));
  * `getIterator(iterable)`
  * `isIterable(iterable)`
  * `map(mapFn, iterable)`
+ * `pluck(iterable)`
  * `slice(fromIdx, len, iterable)`
  * `tail(iterable)`
  * `take(num, iterable)`
