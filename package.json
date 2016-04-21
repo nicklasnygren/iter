@@ -11,6 +11,10 @@
     "watch": "nodemon -q -w ./src -w ./test -e js -x npm run tap",
     "prepublish": "npm run build"
   },
+  "files": [
+    "index.js",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicklasnygren/iter.git"
