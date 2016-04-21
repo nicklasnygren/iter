@@ -1,6 +1,5 @@
-import assertIterable from './assertIterable';
+import getIterator from './getIterator';
 
 export default function (iterable) {
-  assertIterable(iterable);
-  return Array.from(iterable[Symbol.iterator]());
+  return Array.from(getIterator(iterable));
 }
