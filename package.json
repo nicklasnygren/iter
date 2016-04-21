@@ -30,7 +30,8 @@
   "author": "Nicklas Nygren",
   "license": "MIT",
   "dependencies": {
-    "auto-curry": "^0.2.0"
+    "auto-curry": "^0.2.0",
+    "babel-runtime": "^6.6.1"
   },
   "devDependencies": {
     "babel-plugin-transform-runtime": "^6.7.5",
