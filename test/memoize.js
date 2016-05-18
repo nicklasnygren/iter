@@ -1,5 +1,5 @@
 import test from 'tape';
-import { memoize, take, getArray } from '../src';
+import { memoize, take } from '../src';
 
 test('memoize', t => {
   
@@ -18,8 +18,8 @@ test('memoize', t => {
   const memoRand = memoize(rand);
 
   t.deepEqual(
-    getArray(take(3, memoRand())),
-    getArray(take(3, memoRand())),
+    [...take(3, memoRand())],
+    [...take(3, memoRand())],
     `memoize memoizes iterable`
   );
   

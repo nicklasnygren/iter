@@ -1,6 +1,6 @@
 import moment from 'moment';
 import test from 'tape';
-import { isIterable, dateRange, getArray, map } from '../src';
+import { isIterable, dateRange, map } from '../src';
 
 test('dateRange', t => {
 
@@ -13,7 +13,7 @@ test('dateRange', t => {
     , `dateRange returns iterable`);
   
   t.deepEqual(
-    getArray(map(d => d.toISOString(), dateRange('2014-01-01', '2014-01-02'))),
+    [...map(d => d.toISOString(), dateRange('2014-01-01', '2014-01-02'))],
     [new Date('2014-01-01 00:00:00'), new Date('2014-01-02 00:00:00')].map(d => d.toISOString()),
     `dateRange produces expected output`
   );

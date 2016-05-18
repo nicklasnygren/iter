@@ -1,5 +1,5 @@
 import test from 'tape';
-import { take, getArray, intRange, isIterable } from '../src';
+import { take, intRange, isIterable } from '../src';
 
 test('take', t => {
   
@@ -13,7 +13,7 @@ test('take', t => {
     , `take returns iterable`);
   
   t.deepEqual(
-    getArray(take(3, intRange(1, 4))),
+    [...take(3, intRange(1, 4))],
     [1, 2, 3],
     `take slices iterable from beginning`
   );
@@ -30,7 +30,7 @@ test('take', t => {
     , `curried take returns iterable`);
   
   t.deepEqual(
-    getArray(_take3(intRange(2, 6))),
+    [..._take3(intRange(2, 6))],
     [2, 3, 4],
     `curried take produces expected output`
   );

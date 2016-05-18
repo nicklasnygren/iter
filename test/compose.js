@@ -1,5 +1,5 @@
 import test from 'tape';
-import { compose, filter, map, intRange, getArray, zipWith, take, compact } from '../src';
+import { compose, filter, map, intRange, zipWith, take, compact } from '../src';
 
 test('compose', t => {
   
@@ -13,24 +13,21 @@ test('compose', t => {
   const _isPositive = n => !!n;
 
   t.deepEqual(
-    getArray(
-      compose(
-        filter(_isPositive),
-        map(_divisableByTwo),
-        intRange(1, 6)
-      )
-    ),
+    [...compose(
+      filter(_isPositive),
+      map(_divisableByTwo),
+      intRange(1, 6)
+    )],
     [1, 1, 1],
     `compose composes iterators right to left`
   );
   
   t.deepEqual(
-    getArray(
-      compose(
+    [...compose(
         compose(compose(filter(n => !_isPositive(n)))), // Gratuitous use of compose :)
         map(_divisableByTwo)
       )(intRange(1, 6))
-    ),
+    ],
     [0, 0, 0],
     `compose returns function if leftmost argument not iterable`
   );
@@ -43,7 +40,7 @@ test('compose', t => {
   );
 
   t.deepEqual(
-    getArray(take(15, _fizzBuzz)),
+    [...take(15, _fizzBuzz)],
     [1, 2, 'fizz', 4, 'buzz', 'fizz', 7, 8 , 'fizz', 'buzz', 11, 'fizz', 13, 14, 'fizzbuzz'],
     `Composition can provide interviewers with a much needed fizzBuzz algorithm`
   );

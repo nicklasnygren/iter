@@ -1,5 +1,5 @@
 import test from 'tape';
-import { filter, getArray, intRange, isIterable } from '../src';
+import { filter, intRange, isIterable } from '../src';
 
 test('filter', t => {
   
@@ -13,7 +13,7 @@ test('filter', t => {
     , `filter returns iterable`);
   
   t.deepEqual(
-    getArray(filter(n => n < 3, intRange(1, 5))),
+    [...filter(n => n < 3, intRange(1, 5))],
     [1, 2],
     `filter produces expected output`
   );
@@ -27,7 +27,7 @@ test('filter', t => {
     , `partially applied filter returns function`);
   
   t.deepEqual(
-    getArray(_filterUnder3(intRange(1, 1e3))),
+    [..._filterUnder3(intRange(1, 1e3))],
     [1, 2],
     `curried filter produces expected output`
   );

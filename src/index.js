@@ -3,7 +3,6 @@ export { default as assertIterable } from './assertIterable';
 export { default as compact } from './compact';
 export { default as compose } from './compose';
 export { default as filter } from './filter';
-export { default as getArray } from './getArray';
 export { default as getIterator } from './getIterator';
 export { default as isIterable } from './isIterable';
 export { default as map } from './map';

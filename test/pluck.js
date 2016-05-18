@@ -1,5 +1,5 @@
 import test from 'tape';
-import { pluck, compose, compact, unique, getArray } from '../src';
+import { pluck, compose, compact, unique } from '../src';
 
 test('pluck', t => {
   
@@ -30,7 +30,7 @@ test('pluck', t => {
   }];
 
   t.deepEqual(
-    getArray(_getUniqueTruthyOccupations(_people)),
+    [..._getUniqueTruthyOccupations(_people)],
     ['Foo', 'Bar'],
     `pluck maps out the provided property from each item`
   );

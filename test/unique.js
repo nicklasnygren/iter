@@ -1,5 +1,5 @@
 import test from 'tape';
-import { unique, getArray, isIterable, take, map } from '../src';
+import { unique, isIterable, take, map } from '../src';
 
 test('unique', t => {
   
@@ -33,13 +33,13 @@ test('unique', t => {
   );
 
   t.deepEqual(
-    getArray(unique(take(52, _cardSuites))),
+    [...unique(take(52, _cardSuites))],
     ['clubs', 'diamonds', 'hearts', 'spades'],
     `unique produces expected output`
   );
 
   t.deepEqual(
-    getArray(unique([{ foo: 'bar' }, { foo: 'bar' }])),
+    [...unique([{ foo: 'bar' }, { foo: 'bar' }])],
     [{ foo: 'bar' }, { foo: 'bar' }],
     `unique does not do deep comparisons`
   );

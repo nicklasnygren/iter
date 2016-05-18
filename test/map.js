@@ -1,5 +1,5 @@
 import test from 'tape';
-import { map, intRange, getArray, isIterable } from '../src';
+import { map, intRange, isIterable } from '../src';
 
 test('map', t => {
   
@@ -13,7 +13,7 @@ test('map', t => {
     , `map returns iterable`);
   
   t.deepEqual(
-    getArray(map(n => `num: ${n}`, intRange(1, 3))),
+    [...map(n => `num: ${n}`, intRange(1, 3))],
     ['num: 1', 'num: 2', 'num: 3'],
     `map behaves like Array.prototype.map`
   );
@@ -30,7 +30,7 @@ test('map', t => {
     , `Curried map produces iterable`);
   
   t.deepEqual(
-    getArray(_parens(intRange(1, 2))),
+    [..._parens(intRange(1, 2))],
     ['(1)', '(2)'],
     `Curried map produces expected output`
   );

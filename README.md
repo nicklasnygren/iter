@@ -8,7 +8,7 @@ Utility library for functional programming based on ES2015 generators that ensur
 #### Fizzbuzz generator
 
 ```js
-import { compose, map, intRange, take, getArray } from 'iter';
+import { compose, map, intRange, take } from 'iter';
 
 const fizzBuzz = compose(
   map(n => n % 3 === 0 ? 'fizz' : n),
@@ -17,7 +17,7 @@ const fizzBuzz = compose(
   intRange(1, Infinity)
 );
 
-getArray(take(15, fizzBuzz));
+[...take(15, fizzBuzz)]
   // => [1, 2, 'fizz', 4, 'buzz', 'fizz', 7, 8 , 'fizz', 'buzz', 11, 'fizz', 13, 14, 'fizzbuzz']
 
 ```
@@ -25,7 +25,7 @@ getArray(take(15, fizzBuzz));
 #### Fibonacci sequence up to the nth number
 
 ```js
-import { zipWith, tail, take, getArray } from 'iter';
+import { zipWith, tail, take } from 'iter';
 
 const fibonacci = function * () {
   yield 0;
@@ -33,7 +33,7 @@ const fibonacci = function * () {
   yield * zipWith((x, y) => x + y, fibonacci(), tail(fibonacci()));
 };
 
-getArray(take(8, fibonacci()));
+[...take(8, fibonacci())]
   // => [0, 1, 1, 2, 3, 5, 8, 13]
 ```
 
@@ -42,7 +42,6 @@ getArray(take(8, fibonacci()));
  * `compact(iterable)`
  * `compose(...iterables)`
  * `filter(filterFn, iterable)`
- * `getArray(iterable)`
  * `getIterator(iterable)`
  * `isIterable(iterable)`
  * `map(mapFn, iterable)`
