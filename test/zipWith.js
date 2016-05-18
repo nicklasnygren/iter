@@ -1,5 +1,5 @@
 import test from 'tape';
-import { zipWith, tail, getArray, take, isIterable, intRange } from '../src';
+import { zipWith, tail, getArray, take, isIterable, intRange, memoize } from '../src';
 
 test('zipWith', t => {
   
@@ -9,11 +9,11 @@ test('zipWith', t => {
   t.ok(typeof zipWith === 'function'
     , `zipWith should be a function`);
   
-  const fibonacci = function * () {
+  const fibonacci = memoize(function * () {
     yield 0;
     yield 1;
     yield * zipWith((x, y) => x + y, fibonacci(), tail(fibonacci()));
-  };
+  });
 
   t.deepEqual(
     getArray(take(8, fibonacci())),
