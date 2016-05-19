@@ -1,4 +1,3 @@
-import getIterator from './getIterator';
 import isIterable from './isIterable';
 
 export default function compose(...iterables) {
@@ -9,7 +8,7 @@ export default function compose(...iterables) {
   }
 
   if (isIterable(iterables[iterables.length - 1])) {
-    return iterator(getIterator(iterables.pop()));
+    return iterator(iterables.pop());
   }
   else {
     return iterator;

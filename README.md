@@ -42,7 +42,6 @@ const fibonacci = function * () {
  * `compact(iterable)`
  * `compose(...iterables)`
  * `filter(filterFn, iterable)`
- * `getIterator(iterable)`
  * `isIterable(iterable)`
  * `map(mapFn, iterable)`
  * `pluck(iterable)`

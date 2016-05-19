@@ -1,5 +1,3 @@
-import getIterator from './getIterator';
-
 export default function * unique(iterable) {
   const set = new Set();
   for (const item of iterable) {
