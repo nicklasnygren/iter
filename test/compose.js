@@ -1,5 +1,5 @@
 import test from 'tape';
-import { compose, filter, map, intRange, zipWith, take, compact } from '../src';
+import { compose, filter, map, range, zipWith, take, compact } from '../src';
 
 test('compose', t => {
   
@@ -16,7 +16,7 @@ test('compose', t => {
     [...compose(
       filter(_isPositive),
       map(_divisableByTwo),
-      intRange(1, 6)
+      range(1, 6)
     )],
     [1, 1, 1],
     `compose composes iterators right to left`
@@ -26,7 +26,7 @@ test('compose', t => {
     [...compose(
         compose(compose(filter(n => !_isPositive(n)))), // Gratuitous use of compose :)
         map(_divisableByTwo)
-      )(intRange(1, 6))
+      )(range(1, 6))
     ],
     [0, 0, 0],
     `compose returns function if leftmost argument not iterable`
@@ -36,7 +36,7 @@ test('compose', t => {
     map(n => n % 3 === 0 ? 'fizz' : n),
     map(n => n % 5 === 0 ? 'buzz' : n),
     map(n => n % 5 === 0 && n % 3 === 0 ? 'fizzbuzz' : n),
-    intRange(1, Infinity)
+    range(1, Infinity)
   );
 
   t.deepEqual(

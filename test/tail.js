@@ -1,5 +1,5 @@
 import test from 'tape';
-import { tail, intRange } from '../src';
+import { tail, range } from '../src';
 
 test('tail', t => {
 
@@ -10,7 +10,7 @@ test('tail', t => {
     , `tail should be a function`);
   
   t.deepEqual(
-    [...tail(intRange(1, 5))],
+    [...tail(range(1, 5))],
     [2, 3, 4, 5],
     `tail returns entire iterable chain except first item`
   );

@@ -1,5 +1,5 @@
 import test from 'tape';
-import { zipWith, tail, take, isIterable, intRange, memoize } from '../src';
+import { zipWith, tail, take, isIterable, range, memoize } from '../src';
 
 test('zipWith', t => {
   
@@ -27,7 +27,7 @@ test('zipWith', t => {
     , `partially applied zipWith does not return iterable`);
   
   t.deepEqual(
-    [...take(5, _zipWithSum(intRange(1, 5), intRange(6, 10), intRange(1, 3)))],
+    [...take(5, _zipWithSum(range(1, 5), range(6, 10), range(1, 3)))],
     [8, 11, 14],
     `curried zipWith produces expected output`
   );

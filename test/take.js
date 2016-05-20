@@ -1,5 +1,5 @@
 import test from 'tape';
-import { take, intRange, isIterable } from '../src';
+import { take, range, isIterable } from '../src';
 
 test('take', t => {
   
@@ -9,11 +9,11 @@ test('take', t => {
   t.ok(typeof take === 'function'
     , `take should be a function`);
 
-  t.ok(isIterable(take(3, intRange(1, 4)))
+  t.ok(isIterable(take(3, range(1, 4)))
     , `take returns iterable`);
   
   t.deepEqual(
-    [...take(3, intRange(1, 4))],
+    [...take(3, range(1, 4))],
     [1, 2, 3],
     `take slices iterable from beginning`
   );
@@ -26,11 +26,11 @@ test('take', t => {
   t.ok(typeof _take3 === 'function'
     , `partially applied take returns function`);
   
-  t.ok(isIterable(_take3(intRange(1, 10)))
+  t.ok(isIterable(_take3(range(1, 10)))
     , `curried take returns iterable`);
   
   t.deepEqual(
-    [..._take3(intRange(2, 6))],
+    [..._take3(range(2, 6))],
     [2, 3, 4],
     `curried take produces expected output`
   );

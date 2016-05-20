@@ -1,13 +1,14 @@
-export * from './range';
 export { default as assertIterable } from './assertIterable';
 export { default as compact } from './compact';
 export { default as compose } from './compose';
+export { default as dateRange } from './dateRange';
 export { default as filter } from './filter';
 export { default as flatten } from './flatten';
 export { default as isIterable } from './isIterable';
 export { default as map } from './map';
 export { default as memoize } from './memoize';
 export { default as pluck } from './pluck';
+export { default as range } from './range';
 export { default as slice } from './slice';
 export { default as tail } from './tail';
 export { default as take } from './take';

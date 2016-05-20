@@ -8,13 +8,13 @@ Utility library for functional programming based on ES2015 generators that ensur
 #### Fizzbuzz generator
 
 ```js
-import { compose, map, intRange, take } from 'iter';
+import { compose, map, range, take } from 'iter';
 
 const fizzBuzz = compose(
   map(n => n % 3 === 0 ? 'fizz' : n),
   map(n => n % 5 === 0 ? 'buzz' : n),
   map(n => n % 5 === 0 && n % 3 === 0 ? 'fizzbuzz' : n),
-  intRange(1, Infinity)
+  range(1, Infinity)
 );
 
 [...take(15, fizzBuzz)]

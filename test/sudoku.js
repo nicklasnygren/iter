@@ -1,5 +1,5 @@
 import test from 'tape';
-import { intRange, filter, map, compose, flatten } from '../src';
+import { range, filter, map, compose, flatten } from '../src';
 
 test('Sudoku with iterables!', t => {
 
@@ -18,7 +18,7 @@ test('Sudoku with iterables!', t => {
     * getCandidatesFor(x, y) {
       const taken = new Set(this.getNonCandidatesFor(x, y));
       if (taken.size < 9 && !Sudoku.validValue(this.getCellValueFor(x, y))) {
-        yield * filter(num => !taken.has(num), intRange(1, 9));
+        yield * filter(num => !taken.has(num), range(1, 9));
       }
     }
 
@@ -138,8 +138,8 @@ test('Sudoku with iterables!', t => {
       const qX = boxBounds(x);
       const qY = boxBounds(y);
 
-      for (const rIdx of intRange(qY, qY + 2)) {
-        for (const cIdx of intRange(qX, qX + 2)) {
+      for (const rIdx of range(qY, qY + 2)) {
+        for (const cIdx of range(qX, qX + 2)) {
           yield [cIdx, rIdx];
         }
       }
@@ -156,7 +156,7 @@ test('Sudoku with iterables!', t => {
     }
 
     static dims() {
-      return intRange(0, 8);
+      return range(0, 8);
     }
   };
 
